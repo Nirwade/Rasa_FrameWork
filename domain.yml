@@ -1,0 +1,76 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - reserve_table
+  - menu_inquiry
+
+entities:
+  - number_of_people
+  - date
+  - time
+  - menu_item_category
+
+slots:
+  number_of_people:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number_of_people
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+  time:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: time
+  menu_item_category:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: menu_item_category
+
+actions:
+  - utter_iamabot
+  - utter_greet
+  - utter_happy
+  - utter_cheer_up
+  - utter_did_that_help
+  - utter_goodbye
+  - action_reserve_table
+  - action_provide_menu_information
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+
+  utter_happy:
+    - text: "I'm glad to hear that you're feeling great!"
+
+  utter_cheer_up:
+    - text: "I'm sorry to hear that. Here's something to cheer you up."
+
+  utter_did_that_help:
+    - text: "Did that help you feel better?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+
+  utter_ask_date:
+    - text: "When would you like to reserve the table?"
+
+  utter_menu_inquiry_response:
+    - text: "Sure! Here are our menu options for you to choose from."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
